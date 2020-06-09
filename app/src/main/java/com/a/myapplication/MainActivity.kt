@@ -1,8 +1,10 @@
 package com.a.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -10,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i("onCreate", "onCreate")
+        text.setOnClickListener {
+            val i = Intent(this@MainActivity, MainActivity2::class.java)
+            startActivity(i)
+        }
     }
 
 
@@ -35,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        Log.i("onStart", "onStart")
+        Log.i("onStop", "onStop")
     }
 
     override fun onDestroy() {
